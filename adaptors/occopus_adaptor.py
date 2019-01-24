@@ -277,6 +277,8 @@ class OccopusAdaptor(abco.Adaptor):
         nics.append(dict)
         self.node_data[key]["description"]["nics"] = nics
         self._node_data_get_context_section()
+        self.node_data.setdefault("health_check", {}) \
+            .setdefault("ping",False)
 
     def _node_data_get_ec2_host_properties(self, node, key):
         """
